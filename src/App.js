@@ -1,11 +1,22 @@
-import React from "react";
+import React, { Component } from "react";
 import "./styles.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function App() {
-  return (
-    <div className="App">
-      <h1>CodeSandBox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="col-6">column 1</div>
+          <div className="col-6">
+            <span>
+              <i className="fas fa-home" />
+            </span>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
+
+export default App;
