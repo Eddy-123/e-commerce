@@ -7,22 +7,24 @@ class ProductProvider extends Component {
   state = {
     products: [],
     detailProduct: detailProduct,
-    cart: []
+    cart: [],
+    modalOpen: false,
+    modalProduct: detailProduct
   };
   componentDidMount() {
     this.setProducts();
   }
-  getItem = (id) =>{
-    const product = this.state.products.find(item =>item.id === id);
+  getItem = id => {
+    const product = this.state.products.find(item => item.id === id);
     return product;
-    }
-  handleDetail = (id) => {
-    const product = this.getItem(id);
-    this.setState(()=>{
-      return {detailProduct:product}
-    })
   };
-  addToCart = (id) => {
+  handleDetail = id => {
+    const product = this.getItem(id);
+    this.setState(() => {
+      return { detailProduct: product };
+    });
+  };
+  addToCart = id => {
     let tempProducts = [...this.state.products];
     const index = tempProducts.indexOf(this.getItem(id));
     const product = tempProducts[index];
@@ -30,6 +32,12 @@ class ProductProvider extends Component {
     product.count = 1;
     const price = product.price;
     product.total = price;
+    this.setState(
+      () => {
+        return { products: tempProducts, cart: [...this.state.cart, product] };
+      },
+      () => console.log(this.state)
+    );
   };
   setProducts = () => {
     let tempProducts = [];
@@ -41,13 +49,29 @@ class ProductProvider extends Component {
       return { products: tempProducts };
     });
   };
+  openModal = id => {
+    const product = this.getItem(id);
+    this.setState(() => {
+      return {
+        modalOpen: true,
+        modalProduct: product
+      };
+    });
+  };
+  closeModal = () => {
+    this.setState(() => {
+      return { modalOpen: false };
+    });
+  };
   render() {
     return (
       <ProductContext.Provider
         value={{
           ...this.state,
           handleDetail: this.handleDetail,
-          addToCart: this.addToCart
+          addToCart: this.addToCart,
+          openModal: this.openModal,
+          closeModal: this.closeModal
         }}
       >
         {this.props.children}
