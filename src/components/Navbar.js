@@ -7,28 +7,36 @@ export default class Navbar extends Component {
   render() {
     return (
       <NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5">
-        {/* 
-https://www.iconfinder.com/icons/1243689/call_phone_icon
-Creative Commons (Attribution 3.0 Unported);
-https://www.iconfinder.com/Makoto_msk */}
         <Link to="/">
           <img src={logo} alt="Agency" className="navbar-brand" />
         </Link>
-        <ul className="navbar-nav align-item-center">
-          <li className="nav-item ml-5">
+        <ul className="navbar-nav">
+          <li className="nav-item ml-5 my-auto">
             <Link to="/" className="nav-link">
-              Products
+              <ButtonContainer>Products</ButtonContainer>
+            </Link>
+          </li>
+          <li className="nav-item ml-5 my-auto">
+            <Link to="/registration" className="ml-auto">
+              <ButtonContainer>
+                <span className="mr-2">
+                  <i class="fa fa-registered" aria-hidden="true" />
+                </span>
+                Registration
+              </ButtonContainer>
+            </Link>
+          </li>
+          <li className="nav-item ml-5 my-auto">
+            <Link to="/cart" className="ml-auto">
+              <ButtonContainer>
+                <span className="mr-2">
+                  <i className="fas fa-cart-plus" />
+                </span>
+                Cart
+              </ButtonContainer>
             </Link>
           </li>
         </ul>
-        <Link to="/cart" className="ml-auto">
-          <ButtonContainer>
-            <span className="mr-2">
-              <i className="fas fa-cart-plus" />
-            </span>
-            Cart
-          </ButtonContainer>
-        </Link>
       </NavWrapper>
     );
   }

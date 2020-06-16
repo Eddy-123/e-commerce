@@ -3,7 +3,9 @@ import { Switch, Route } from "react-router-dom";
 import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+//Layouts
 import MainLayout from "./layouts/MainLayout";
+import ProductListLayout from "./layouts/ProductListLayout";
 import ProductList from "./components/ProductList";
 import Details from "./components/Details";
 import Cart from "./components/Cart";
@@ -21,9 +23,9 @@ class App extends Component {
             exact
             path="/"
             render={() => (
-              <MainLayout>
+              <ProductListLayout>
                 <ProductList />
-              </MainLayout>
+              </ProductListLayout>
             )}
           />
           <Route
