@@ -12,6 +12,7 @@ import Cart from "./components/Cart";
 import Default from "./components/Default";
 import Modal from "./components/Modal";
 import Registration from "./components/Registration";
+import Login from "./components/Login";
 
 class App extends Component {
   render() {
@@ -52,7 +53,21 @@ class App extends Component {
               </MainLayout>
             )}
           />
-          <Route component={Default} />
+          <Route
+            path="/login"
+            render={() => (
+              <MainLayout>
+                <Login />
+              </MainLayout>
+            )}
+          />
+          <Route
+            /*component={Default}*/ render={() => (
+              <MainLayout>
+                <Default />
+              </MainLayout>
+            )}
+          />
         </Switch>
         <Modal />
       </React.Fragment>

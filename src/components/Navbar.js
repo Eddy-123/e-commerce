@@ -17,10 +17,15 @@ export default class Navbar extends Component {
             </Link>
           </li>
           <li className="nav-item ml-5 my-auto">
+            <Link to="/login" className="nav-link">
+              <ButtonContainer>Login</ButtonContainer>
+            </Link>
+          </li>
+          <li className="nav-item ml-5 my-auto">
             <Link to="/registration" className="ml-auto">
               <ButtonContainer>
                 <span className="mr-2">
-                  <i class="fa fa-registered" aria-hidden="true" />
+                  <i className="fa fa-registered" aria-hidden="true" />
                 </span>
                 Registration
               </ButtonContainer>
