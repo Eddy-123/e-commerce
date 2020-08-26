@@ -9,7 +9,8 @@ import Details from "./components/Details";
 import Cart from "./components/Cart";
 import Default from "./components/Default";
 import Modal from "./components/Modal";
-import Registration from "./components/Registration";
+import Registration from "./components/Account/Registration";
+import Account from "./components/Account";
 
 class App extends Component {
   render() {
@@ -47,6 +48,14 @@ class App extends Component {
             render={() => (
               <MainLayout>
                 <Registration />
+              </MainLayout>
+            )}
+          />
+          <Route
+            path="/account"
+            render={() => (
+              <MainLayout>
+                <Account />
               </MainLayout>
             )}
           />
