@@ -14,13 +14,12 @@ https://www.iconfinder.com/Makoto_msk */}
         <Link to="/">
           <img src={logo} alt="Agency" className="navbar-brand" />
         </Link>
-        <ul className="navbar-nav align-item-center">
-          <li className="nav-item ml-5">
-            <Link to="/" className="nav-link">
-              Products
-            </Link>
-          </li>
-        </ul>
+        <Link to="/" className="nav-link">
+          Products
+        </Link>
+        <Link to="/account" className="nav-link">
+          Account
+        </Link>
         <Link to="/cart" className="ml-auto">
           <ButtonContainer>
             <span className="mr-2">
